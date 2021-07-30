@@ -9,12 +9,12 @@ Python API wrapper for the Kollet Merchant API
 - Send out funds to another wallet address on a particular cryptocurrency network.
 
 ## 📦 Installation
-```bash
-    $ python -m pip install kollet-io-python
+```
+$ python -m pip install kollet-io-python
 ```
 or 
 ```
-    pip install kollet-io-python
+pip install kollet-io-python
 ```
 
 ## 📝 Confuring and using module

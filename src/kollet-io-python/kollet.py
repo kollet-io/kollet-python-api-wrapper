@@ -13,7 +13,7 @@ __version__ = "0.0.1"
 import requests
 from errors import KolletErrors
 
-class Kollet:
+class Kollet(object):
     def __init__(self, api_key: str):
         """ 
         Instantiates an instance of :class: `Kollet`.
@@ -75,6 +75,95 @@ class Kollet:
             "currency": currency,
             "label": label,
             "metadata": metadata
+        }
+
+        response = self.__request(endpoint, payload)
+        if response["success"]:
+            return response
+        raise KolletErrors(response["message"])
+
+    def get_balance(self, currency: str):
+        """
+        Get balance of a particular cryptocurrency.
+
+        Parameters
+        ----------
+        :param currency: `str`, the code of the supported cryptocurrency.Visit the supported cryptocurrency 
+        section to view the currencies supported and their various codes. e.g. BTC
+        
+        :return: JSON response
+
+        :error: raises error :class: `KolletErrors` when response success is false or status code is 400
+        """
+        
+        endpoint = self.__endpoints.get("balance")
+        payload = {
+            "accessToken": self.__api_key,
+            "currency": currency
+        }
+
+        response = self.__request(endpoint, payload)
+        if response["success"]:
+            return response
+        raise KolletErrors(response["message"])
+    
+    def estimate_network_fee(self, amount:str, currency: str, duration: str):
+        """
+        Get an estimated fee for sending funds on a particular cryptocurrency network.
+
+        Parameters
+        ----------
+        :param amount: `str`, the amount of cryptocurrency units you want to send out.
+        :param currency: `str`, the code of the supported cryptocurrency.Visit the supported cryptocurrency 
+        section to view the currencies supported and their various codes. e.g. BTC
+        :param duration, `str`, this is the duration code. This duration code determines how much fees you actually pay and 
+        how fast you your recipient receive their funds. 
+        Refer to https://docs.kollet.io/docs/kollet-merchant/docs/2.0.Network-Fee-And-Duration.md for the different durations.
+        
+        :return: JSON response
+
+        :error: raises error :class: `KolletErrors` when response success is false or status code is 400
+        """
+
+        endpoint = self.__endpoints.get("estimate_fee")
+        payload = {
+            "accessToken": self.__api_key,
+            "amount": amount,
+            "currency": currency,
+            "duration": duration
+        }
+
+        response = self.__request(endpoint, payload)
+        if response["success"]:
+            return response
+        raise KolletErrors(response["message"])
+
+    def send_coins(self, amount:str, currency: str, duration: str, recipient: str):
+        """
+        Get an estimated fee for sending funds on a particular cryptocurrency network.
+
+        Parameters
+        ----------
+        :param amount: `str`, the amount of cryptocurrency units you want to send out.
+        :param currency: `str`, the code of the supported cryptocurrency.Visit the supported cryptocurrency 
+        section to view the currencies supported and their various codes. e.g. BTC
+        :param duration, `str`, this is the duration code. This duration code determines how much fees you actually pay and 
+        how fast you your recipient receive their funds. 
+        Refer to https://docs.kollet.io/docs/kollet-merchant/docs/2.0.Network-Fee-And-Duration.md for the different durations.
+        :param recipient: `str`, this is the destination. The receiving wallet address/recipient.
+        
+        :return: JSON response
+
+        :error: raises error :class: `KolletErrors` when response success is false or status code is 400
+        """
+
+        endpoint = self.__endpoints.get("send")
+        payload = {
+            "accessToken": self.__api_key,
+            "amount": amount,
+            "currency": currency,
+            "duration": duration,
+            "recipient": recipient
         }
 
         response = self.__request(endpoint, payload)

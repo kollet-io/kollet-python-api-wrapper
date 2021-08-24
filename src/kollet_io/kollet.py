@@ -11,7 +11,7 @@ __author__ = "Kollet.io"
 __version__ = "0.0.2"
 
 import requests
-from errors import KolletErrors
+from .errors import KolletErrors
 
 class Kollet(object):
     def __init__(self, api_key: str):

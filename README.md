@@ -10,11 +10,11 @@ Python API wrapper for the Kollet Merchant API
 
 ## 📦 Installation
 ```
-$ python -m pip install kollet-io-python
+$ python -m pip install kollet-io
 ```
 or 
 ```
-pip install kollet-io-python
+pip install kollet-io
 ```
 
 ## 📝 Confuring and using module

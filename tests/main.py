@@ -3,7 +3,7 @@ from kollet.kollet import Kollet
 
 class TestKollet(unittest.TestCase):
     def test_add_token(self): 
-        self.client = Kollet(api_key="6fd90f4b-2c4d-4b55-9b36-55c6deae61f8")
+        self.client = Kollet(api_key="")
 
     def test_get_currencies(self):
         currencies = self.client.get_currencies()

@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as file_handler:
 
 setuptools.setup(
     name="kollet-io",
-    packages=setuptools.find_packages(where="src", exclude="tests"),
+    packages=setuptools.find_packages(exclude="tests"),
     version="0.1.0",
     license='MIT',
     author="Kollet.io",
@@ -15,7 +15,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/kollet-io/kollet-python-api-wrapper.git",
-    keywords="",
+    keywords="Kollet, Kollet API, Merchant API Wrapper, Kollet API Wrapper, Kollet Merchant API",
     install_requires=['requests'],
     classifiers=[
         "Programming Language :: Python :: 3",

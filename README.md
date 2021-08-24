@@ -23,7 +23,7 @@ To access the API, you will need an accessToken or API Key from the merchant [da
 # Quick start Guide
 ```python
 
-from kollet_io.kollet import Kollet
+from kollet.kollet import Kollet
 
 client = Kollet(api_key="YOUR_API_KEY")
 

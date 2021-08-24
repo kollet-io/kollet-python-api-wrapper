@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as file_handler:
 
 setuptools.setup(
     name="kollet-io",
-    packages=setuptools.find_packages(where="src"),
+    packages=setuptools.find_packages(where="src", exclude="tests"),
     version="0.1.0",
     license='MIT',
     author="Kollet.io",

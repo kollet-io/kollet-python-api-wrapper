@@ -17,7 +17,7 @@ or
 pip install kollet-io
 ```
 
-## 📝 Confuring and using module
+## 📝 Configuring and using module
 To access the API, you will need an accessToken or API Key from the merchant [dashboard]("https://app.kollet.io/developer/integrations").
 
 # Quick start Guide

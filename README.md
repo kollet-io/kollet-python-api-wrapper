@@ -10,11 +10,11 @@ Python API wrapper for the Kollet Merchant API
 
 ## 📦 Installation
 ```
-$ python -m pip install kollet-io-python
+$ python -m pip install kollet-io
 ```
 or 
 ```
-pip install kollet-io-python
+pip install kollet-io
 ```
 
 ## 📝 Confuring and using module
@@ -23,7 +23,7 @@ To access the API, you will need an accessToken or API Key from the merchant [da
 # Quick start Guide
 ```python
 
-from kollet import Kollet
+from kollet.kollet import Kollet
 
 client = Kollet(api_key="YOUR_API_KEY")
 
